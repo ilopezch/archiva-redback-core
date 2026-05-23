@@ -97,7 +97,7 @@
     <log4j.version>2.17.1</log4j.version>
     <ehcache.version>3.9.9</ehcache.version>
     <spring.version>5.3.22</spring.version>
-    <cxf.version>3.6.11</cxf.version>
+    <cxf.version>3.3.11</cxf.version>
     <jackson.version>2.12.1</jackson.version>
     <hsqldb.version>2.5.0</hsqldb.version>
     <openjpa.version>3.1.1</openjpa.version>
@@ -406,6 +406,10 @@
           <exclusion>
             <groupId>com.sun.activation</groupId>
             <artifactId>jakarta.activation</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>org.glassfish.jaxb</groupId>
+            <artifactId>jaxb-runtime</artifactId>
           </exclusion>
         </exclusions>
       </dependency>
