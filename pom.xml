@@ -93,11 +93,11 @@
     <siteRepositoryUrl>scm:git:https://gitbox.apache.org/repos/asf/archiva-web-content.git</siteRepositoryUrl>
 
     <jetty.version>9.4.43.v20210629</jetty.version>
-    <slf4j.version>1.7.32</slf4j.version>
+    <slf4j.version>1.7.36</slf4j.version>
     <log4j.version>2.17.1</log4j.version>
     <ehcache.version>3.9.9</ehcache.version>
     <spring.version>5.3.22</spring.version>
-    <cxf.version>3.3.11</cxf.version>
+    <cxf.version>3.6.11</cxf.version>
     <jackson.version>2.12.1</jackson.version>
     <hsqldb.version>2.5.0</hsqldb.version>
     <openjpa.version>3.1.1</openjpa.version>
@@ -866,15 +866,15 @@
           <exclusion>
             <groupId>java.xml.stream</groupId>
             <artifactId>stax-api</artifactId>
-          </exclusion>
+	    </exclusion><!--
           <exclusion>
             <groupId>javax.xml.bind</groupId>
             <artifactId>jaxb-api</artifactId>
           </exclusion>
           <exclusion>
-            <groupId>com.sun.xml.bind</groupId>
-            <artifactId>jaxb-impl</artifactId>
-          </exclusion>
+            <groupId>org.glassfish.jaxb</groupId>
+            <artifactId>jaxb-runtime</artifactId>
+    </exclusion>-->
         </exclusions>
 
       </dependency>
@@ -948,6 +948,13 @@
           <version>3.3.0</version>
           <configuration>
             <ignoredUnusedDeclaredDependencies>org.junit.platform:junit-platform-launcher,org.junit.jupiter:junit-jupiter-engine,org.junit.vintage:junit-vintage-engine</ignoredUnusedDeclaredDependencies>
+          </configuration>
+        </plugin>
+	<plugin>
+          <groupId>org.apache.rat</groupId>
+          <artifactId>apache-rat-plugin</artifactId>
+          <configuration>
+                <excludesFile>rat-excludes.txt</excludesFile>
           </configuration>
         </plugin>
       </plugins>

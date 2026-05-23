@@ -33,6 +33,8 @@
   <properties>
     <site.staging.base>${project.parent.parent.parent.basedir}</site.staging.base>
     <rest.test.timeout>1000000</rest.test.timeout>
+        <jaxb.version>2.3.1</jaxb.version>
+        <jaxb-runtime.version>2.3.3</jaxb-runtime.version>
   </properties>
 
   <dependencies>
@@ -424,18 +426,28 @@
   Adding to the plugin dependency is not sufficient, so I have to add it as project dependency.
   Using provided scope to avoid adding it to packaging.
 -->
-  <profiles>
+    <profiles>
     <profile>
-      <id>jdk9+</id>
+      <id>jdk11+</id>
       <activation>
-        <jdk>[1.9,)</jdk>
+              <activeByDefault>true</activeByDefault>
       </activation>
       <dependencies>
-        <dependency>
-          <groupId>jakarta.xml.bind</groupId>
-          <artifactId>jakarta.xml.bind-api</artifactId>
-        </dependency>
+                  <!-- JAXB API -->
+    <dependency>
+        <groupId>javax.xml.bind</groupId>
+        <artifactId>jaxb-api</artifactId>
+        <version>${jaxb.version}</version>
+    </dependency>
+
+    <!-- JAXB Runtime (replaces org.glassfish.jaxb:jaxb-runtime:2.2.x) -->
+    <dependency>
+        <groupId>org.glassfish.jaxb</groupId>
+        <artifactId>jaxb-runtime</artifactId>
+        <version>${jaxb-runtime.version}</version>
+    </dependency>
       </dependencies>
     </profile>
   </profiles>
+
 </project>
