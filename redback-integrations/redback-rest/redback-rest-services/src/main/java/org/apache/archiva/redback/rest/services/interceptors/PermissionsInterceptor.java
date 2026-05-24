@@ -129,7 +129,7 @@ public class PermissionsInterceptor
                                     StringUtils.isBlank( resource ) //
                                         ? null : resource );
                             }
-                             if ( authenticationResult != null && authorizationResult.isAuthorized() )
+                             if ( authenticationResult != null && authorizationResult != null && authorizationResult.isAuthorized() )
                             {
                                 log.debug( "isAuthorized for permission {}", permission );
                                 return;
