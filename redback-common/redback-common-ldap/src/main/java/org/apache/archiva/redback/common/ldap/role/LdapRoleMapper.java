@@ -36,6 +36,13 @@ public interface LdapRoleMapper
 {
 
     /**
+     * Re-reads LDAP configuration properties (baseDn, groupsDn, etc.) from the
+     * user configuration. Must be called after the LDAP configuration is updated
+     * at runtime so cached field values are refreshed.
+     */
+    void initialize();
+
+    /**
      * read all groups from ldap
      *
      * @return all LDAP groups
